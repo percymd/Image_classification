@@ -14,6 +14,15 @@ async function app(){
     displayImagePrediction();
 
     webcam = await tf.data.webcam(webcamElement);
+
+    while(true){
+        const img = await webcam.capture();
+
+        const result = await net.classify(img);
+
+        document.getElementById('consola').innerHTML = 'prediction:' + result[0].className + " probability:" + result[0].probability;
+    }
+    
 }
 
 imgEl.onload = async function(){
