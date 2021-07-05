@@ -2,14 +2,32 @@
     <head>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+        <title> Clasificación de Imágenes y Transferencia de Conocimiento</title>
     </head>
     <body>
-        <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227">
-        <button onclick="cambiarImagen();">Cambiar imagen</button>
+        <img id="img" crossorigin src="https://picsum.photos/200/300?random=3243" width="227" height="227">
         <div id="descripcion_imagen"></div>
+        <button id="cambiaImagen" onclick="cambiarImagen();">Cambiar imagen</button>
+        
+        <br>
+        <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+        <div id="console"></div><br>
+        <div id="console2"></div><br>
 
-        <div id="consola"></div>
-        <video autoplay="" playinline muted id="webcam" width="224" height="224">
-        <script src="script.js?v=13"></script>
+        <button id="clase-a" onclick="addExample(1)"> Face Mask </button>
+        <button id="clase-b" onclick="addExample(2)"> Coke </button>
+        <button id="clase-c" onclick="addExample(3)"> Percy </button>
+        <button id="clase-d" onclick="addExample(4)"> Ok </button>
+        <button id="clase-e" onclick="addExample(5)"> Rock </button>
+       
+        <script src="script.js?v=15"></script>
+        <br/>
+        <br />
+        <br />
+        <button id="saveKnn"  onclick="saveKnn();">Almacenar configuración</button>
+        <br />
+        <button id="loadKnn" onclick="loadKnn();">Recuperar configuración</button>
+    
     </body>
 </html>
