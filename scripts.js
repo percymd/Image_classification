@@ -2,6 +2,8 @@ let net;
 
 const imgEl = document.getElementById('img');
 const descEl = document.getElementById('descripcion_imagen');
+const webcamElement = document.getElementById('webcam');
+
 
 async function app(){
 
@@ -10,6 +12,8 @@ async function app(){
     var result = await net.classify(imgEl);
     console.log(result);
     displayImagePrediction();
+
+    webcam = await tf.data.webcam(webcamElement);
 }
 
 imgEl.onload = async function(){
